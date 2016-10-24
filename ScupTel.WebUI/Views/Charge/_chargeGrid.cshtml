@@ -1,0 +1,22 @@
+﻿@using ScupTel.WebUI.Models
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>@Html.Label("Tarifas", new { @class = "control-label" })</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            @Html.Table("Tarifas", new List<ChargeViewModel>(),
+                        new
+                        {
+                            @class = "table table-striped table-bordered table-hover datatables",
+                            data_action = Url.Action("Charges", "Charge"),
+                            data_allow_edit = true,
+                            data_allow_delete = true,
+                            data_edit_action = Url.Action("Edit", "Charge"),
+                            data_allow_new = true,
+                            data_delete_action = Url.Action("Delete", "Charge"),
+                        })
+        </div>
+    </div>
+</div>
+

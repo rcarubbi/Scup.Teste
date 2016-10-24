@@ -1,0 +1,75 @@
+﻿@model ScupTel.WebUI.Models.QuoteViewModel
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>@Html.Label("Faça sua simulação preenchendo os campos abaixo", new { @class = "control-label" })</h5>
+    </div>
+    <div class="ibox-content">
+
+        @using (Ajax.BeginForm("QuoteCall", "Quote", new AjaxOptions { LoadingElementId = "loading", HttpMethod = "post", UpdateTargetId = "quote-results-container" }, new { id = "form-quote-call" }))
+        {
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-9" id="quote-container">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-inline">
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(model => model.SelectedSourceCode, htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.SelectedSourceCode, Model.Zones, "-- Selecione uma região --", new { @class = "form-control" })
+                          
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(model => model.SelectedTargetCode, htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.SelectedTargetCode, Model.Zones, "-- Selecione uma região --", new { @class = "form-control" })
+                           
+                        </div>
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(model => model.Minutes, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Minutes, new { htmlAttributes = new { @class = "form-control numberOnlyMask col-md-2", data_length = 10 } })
+                           
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Consultar" class="btn btn-primary" />
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-9">
+                    <div class="col-md-3">
+                        @Html.ValidationMessageFor(model => model.SelectedSourceCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.ValidationMessageFor(model => model.SelectedTargetCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.ValidationMessageFor(model => model.Minutes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<div id="quote-results-container"></div>
+
+
+@section Scripts {
+  
+    <script>
+        (function () {
+            var $private = {};
+            $private.validar = function (e) {
+                $(this).validate();
+            };
+
+            $(document).on("submit", "#form-quote-call", $private.validar);
+            $.validator.unobtrusive.parse('#form-quote-call');
+        }());
+    </script>
+}

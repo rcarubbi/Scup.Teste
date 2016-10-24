@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ScupTel.Domain.CallQuote>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>@Html.Label("Planos sugeridos", new { @class = "control-label" })</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-9">
+
+
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>
+                            @Html.Label("Origem")
+                        </th>
+                        <th>
+                            @Html.Label("Destino")
+                        </th>
+                        <th>
+                            @Html.Label("Minutos")
+                        </th>
+                        <th>
+                            @Html.Label("Plano sugerido")
+                        </th>
+                        <th>
+                            @Html.Label("Valor (R$)")
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuotedCall.AppliedCharge.From.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuotedCall.AppliedCharge.To.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuotedCall.Minutes)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HiredPlan.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuoteAmount)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

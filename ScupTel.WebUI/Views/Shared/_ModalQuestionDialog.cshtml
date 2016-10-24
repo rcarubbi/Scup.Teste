@@ -1,0 +1,95 @@
+﻿@model ScupTel.WebUI.Models.ModalQuestionViewModel
+@{
+    string yesButtonCssStyle = "";
+    string yesButtonDataDashAttributes = "";
+
+    if (!string.IsNullOrWhiteSpace(Model.YesButtonAction))
+    {
+        yesButtonCssStyle = "modalQuestionButton";
+        yesButtonDataDashAttributes = "data-action-name=" + Model.YesButtonAction;
+    }
+    else
+    {
+        if (Model.CloseYesButton)
+        {
+            yesButtonDataDashAttributes = "data-dismiss=modal";
+        }
+    }
+
+    string noButtonCssStyle = "";
+    string noButtonDataDashAttributes = "";
+
+
+    if (!string.IsNullOrWhiteSpace(Model.NoButtonAction))
+    {
+        noButtonCssStyle = "modalQuestionButton";
+        noButtonDataDashAttributes = "data-action-name=" + Model.NoButtonAction;
+    }
+    else
+    {
+        if (Model.CloseNoButton)
+        {
+            noButtonDataDashAttributes = "data-dismiss=modal";
+        }
+    }
+
+    if (Model.NoButtonNotification != null)
+    {
+        noButtonDataDashAttributes += string.Format(" data-notification-type='{0}' data-notification-message='{1}' data-notification-title='{2}'", Model.NoButtonNotification.Type, Model.NoButtonNotification.Message, Model.NoButtonNotification.Title);
+    }
+    if (Model.YesButtonNotification != null)
+    {
+        yesButtonDataDashAttributes += string.Format(" data-notification-type='{0}' data-notification-message='{1}' data-notification-title='{2}'", Model.YesButtonNotification.Type, Model.YesButtonNotification.Message, Model.YesButtonNotification.Title);
+    }
+
+    if (!string.IsNullOrWhiteSpace(Model.YesButtonUpdateContainerId))
+    {
+        yesButtonDataDashAttributes += string.Format(" data-update-container-id='{0}'", Model.YesButtonUpdateContainerId);
+    }
+
+    if (!string.IsNullOrWhiteSpace(Model.NoButtonUpdateContainerId))
+    {
+        noButtonDataDashAttributes += string.Format(" data-update-container-id='{0}'", Model.NoButtonUpdateContainerId);
+    }
+
+}
+
+<div class="modal inmodal" id="@Model.Id" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">@Model.Title</h4>
+                <small class="font-bold"></small>
+            </div>
+            <div class="modal-body">
+                <p>
+                    @Model.Body
+                </p>
+            </div>
+            <div class="modal-footer" data-key-properties="@Model.KeyProperties">
+                <button type="button" class="btn btn-white @yesButtonCssStyle" @Html.Raw(yesButtonDataDashAttributes)>Sim</button>
+                <button type="button" class="btn btn-white  @noButtonCssStyle" @Html.Raw(noButtonDataDashAttributes)>Não</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+
+        $(function () {
+            $("#@Model.Id").modal();
+        });
+
+
+    }());
+</script>
+
+
+
+
+
+
+
+
+

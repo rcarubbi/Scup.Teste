@@ -1,0 +1,57 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a href="/">
+                        <span>
+                            <img alt="image" src="~/Content/images/logo-scup-small.png" width="45" height="45" />
+                        </span>
+
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">Portal do Cliente</strong>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+
+
+                <div class="logo-element">
+                    <img src="~/Content/images/logo-scup-small.png" class="logo-image-sm" />
+                </div>
+
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-suitcase"></i>
+                    <span class="nav-label">Administração</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Index", controller: "Zone")">
+                        <a href="@Url.Action("Index", "Zone")"><i class="fa fa-globe"></i> Regiões </a>
+                    </li>
+                    <li class="@Html.IsSelected(action: "Index", controller: "Charge")">
+                        <a href="@Url.Action("Index", "Charge")"><i class="fa fa-money"></i> Tarifas </a>
+                    </li>
+                    <li class="@Html.IsSelected(action: "Index", controller: "Plan")">
+                        <a href="@Url.Action("Index", "Plan")"><i class="fa fa-file"></i> Planos </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">Área do Cliente</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Index", controller: "Quote")">
+                        <a href="@Url.Action("Index", "Quote")"><i class="fa fa-line-chart"></i> Cotações </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

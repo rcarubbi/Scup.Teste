@@ -1,0 +1,75 @@
+﻿@model ScupTel.WebUI.Models.ChargeViewModel
+
+@{
+    var acaoEfetuada = "incluída";
+    var acao = "Inclusão";
+
+    if (Model.Id.HasValue)
+    {
+        acaoEfetuada = "alterada";
+        acao = "Alteração";
+    }
+}
+
+
+@using (Html.BeginForm("Edit", "Zone", FormMethod.Post, new { id = "edit-charge-form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedSourceZoneCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedSourceZoneCode, Model.Zones, "-- Selecione uma região --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectedSourceZoneCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedTargetZoneCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedTargetZoneCode, Model.Zones, "-- Selecione uma região --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectedTargetZoneCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MinutePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MinutePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MinutePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary modalFormButton"
+                       data-action-name="@Url.Action("Edit")"
+                       data-success-update-container-id="charge-grid-container"
+                       data-success-notification-type="Success"
+                       data-success-notification-message="Tarifa @acaoEfetuada com sucesso"
+                       data-success-notification-title="@acao de Tarifa" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    (function () {
+        var $private = {};
+        $private.validar = function (e) {
+            e.preventDefault();
+            $(this).validate();
+            $("#form-modal-container").trigger("validated.pf.form", $(".modalFormButton")[0]);
+        };
+
+        $(document).on("submit", "#edit-charge-form", $private.validar);
+        $.validator.unobtrusive.parse('#edit-charge-form');
+    }());
+</script>
+
+

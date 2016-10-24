@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScupTel.WebUI", "ScupTel.WebUI\ScupTel.WebUI.csproj", "{A5BE2EC2-7868-4462-8788-B0C473784E2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScupTel.Tests", "ScupTel.Tests\ScupTel.Tests.csproj", "{E6FD7A24-12DD-479B-A5C1-98FAC8B6301A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{90BD8AB8-BF86-409D-B60F-21F17D9969E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Tests", "4.Tests", "{F100C36D-093A-428D-9D32-9566318A7C71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScupTel.DataTablesJS", "ScupTel.DataTablesJS\ScupTel.DataTablesJS.csproj", "{DD3DF7B3-1E34-42CE-8CF1-124C0DC52259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScupTel.Domain", "ScupTel.Domain\ScupTel.Domain.csproj", "{F305AAD4-210A-45E1-8309-51F4044F129D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{7433DB72-AEB7-485E-8065-307A8161EE18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DataAccess", "3.DataAccess", "{A4A855CD-C486-4D52-864E-9583748C0A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScupTel.DataAccess", "ScupTel.DataAccess\ScupTel.DataAccess.csproj", "{9FDAA335-A7A8-4AC3-9EEC-FC3DDB5DE64B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5BE2EC2-7868-4462-8788-B0C473784E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5BE2EC2-7868-4462-8788-B0C473784E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5BE2EC2-7868-4462-8788-B0C473784E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5BE2EC2-7868-4462-8788-B0C473784E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6FD7A24-12DD-479B-A5C1-98FAC8B6301A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6FD7A24-12DD-479B-A5C1-98FAC8B6301A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6FD7A24-12DD-479B-A5C1-98FAC8B6301A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6FD7A24-12DD-479B-A5C1-98FAC8B6301A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3DF7B3-1E34-42CE-8CF1-124C0DC52259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3DF7B3-1E34-42CE-8CF1-124C0DC52259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3DF7B3-1E34-42CE-8CF1-124C0DC52259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3DF7B3-1E34-42CE-8CF1-124C0DC52259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F305AAD4-210A-45E1-8309-51F4044F129D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F305AAD4-210A-45E1-8309-51F4044F129D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F305AAD4-210A-45E1-8309-51F4044F129D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F305AAD4-210A-45E1-8309-51F4044F129D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDAA335-A7A8-4AC3-9EEC-FC3DDB5DE64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDAA335-A7A8-4AC3-9EEC-FC3DDB5DE64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDAA335-A7A8-4AC3-9EEC-FC3DDB5DE64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDAA335-A7A8-4AC3-9EEC-FC3DDB5DE64B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5BE2EC2-7868-4462-8788-B0C473784E2B} = {90BD8AB8-BF86-409D-B60F-21F17D9969E6}
+		{E6FD7A24-12DD-479B-A5C1-98FAC8B6301A} = {F100C36D-093A-428D-9D32-9566318A7C71}
+		{DD3DF7B3-1E34-42CE-8CF1-124C0DC52259} = {90BD8AB8-BF86-409D-B60F-21F17D9969E6}
+		{F305AAD4-210A-45E1-8309-51F4044F129D} = {7433DB72-AEB7-485E-8065-307A8161EE18}
+		{9FDAA335-A7A8-4AC3-9EEC-FC3DDB5DE64B} = {A4A855CD-C486-4D52-864E-9583748C0A78}
+	EndGlobalSection
+EndGlobal

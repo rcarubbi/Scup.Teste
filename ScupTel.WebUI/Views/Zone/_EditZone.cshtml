@@ -1,0 +1,65 @@
+﻿@model ScupTel.WebUI.Models.ZoneViewModel
+
+@{
+    var acaoEfetuada = "incluída";
+    var acao = "Inclusão";
+
+    if (Model.Id.HasValue)
+    {
+        acaoEfetuada = "alterada";
+        acao = "Alteração";
+    }
+}
+
+
+@using (Html.BeginForm("Edit", "Zone", FormMethod.Post, new { id = "edit-zone-form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+     
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary modalFormButton"
+                       data-action-name="@Url.Action("Edit")"
+                       data-success-update-container-id="zone-grid-container"
+                       data-success-notification-type="Success"
+                       data-success-notification-message="Região @acaoEfetuada com sucesso"
+                       data-success-notification-title="@acao de Região" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    (function () {
+        var $private = {};
+        $private.validar = function (e) {
+            e.preventDefault();
+            $(this).validate();
+            $("#form-modal-container").trigger("validated.pf.form", $(".modalFormButton")[0]);
+        };
+
+        $(document).on("submit", "#edit-zone-form", $private.validar);
+        $.validator.unobtrusive.parse('#edit-zone-form');
+    }());
+</script>
+
