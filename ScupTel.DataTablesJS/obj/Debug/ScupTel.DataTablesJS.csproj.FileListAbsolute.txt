@@ -1,6 +1,0 @@
-C:\Users\rcaru\Source\Repos\ScupTel\ScuptTel.WebUI.Controls.DataTablesJS\obj\Debug\ScupTel.DataTablesJS.csprojResolveAssemblyReference.cache
-C:\Users\rcaru\Source\Repos\ScupTel\ScupTel.DataTablesJS\bin\Debug\ScupTel.DataTablesJS.dll
-C:\Users\rcaru\Source\Repos\ScupTel\ScupTel.DataTablesJS\bin\Debug\ScupTel.DataTablesJS.pdb
-C:\Users\rcaru\Source\Repos\ScupTel\ScupTel.DataTablesJS\bin\Debug\DataTables.Mvc.dll
-C:\Users\rcaru\Source\Repos\ScupTel\ScupTel.DataTablesJS\obj\Debug\ScupTel.DataTablesJS.dll
-C:\Users\rcaru\Source\Repos\ScupTel\ScupTel.DataTablesJS\obj\Debug\ScupTel.DataTablesJS.pdb

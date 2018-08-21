@@ -1,1 +1,0 @@
-C:\Users\rcaru\Source\Repos\ScupTel\ScupTel.WebUI.Tests\obj\Debug\ScupTel.WebUI.Tests.csprojResolveAssemblyReference.cache
